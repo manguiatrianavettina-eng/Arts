@@ -180,7 +180,7 @@
             color: #A66A3F;
         }
 
-        /* Facebook Cards */
+        /* Related Facebook Links */
         .facebook-posts {
             background-color: white;
             padding: 22px;
@@ -196,72 +196,32 @@
             margin-bottom: 18px;
         }
 
-        .facebook-card {
-            display: block;
-            text-decoration: none;
-            color: #4A2C16;
-            background-color: #F8F3EC;
-            border: 1px solid #E5D8C8;
-            border-radius: 10px;
-            padding: 17px;
-            margin-bottom: 15px;
-            transition: 0.3s ease;
+        .facebook-link-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #E5D8C8;
         }
 
-        .facebook-card:hover {
-            background-color: #EFE2D2;
-            transform: translateY(-3px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        .facebook-link-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
         }
 
-        .facebook-card:last-child {
-            margin-bottom: 0;
-        }
-
-        .facebook-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
-
-        .facebook-icon {
-            background-color: #1877F2;
-            color: white;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 23px;
-            font-weight: bold;
-            font-family: Arial, sans-serif;
-            flex-shrink: 0;
-        }
-
-        .facebook-name {
+        .facebook-link-item p {
             font-size: 14px;
-            font-weight: bold;
+            line-height: 1.7;
+            margin: 0 0 10px;
+            text-align: left;
         }
 
-        .facebook-label {
-            font-size: 11px;
-            color: #888;
-            margin-top: 3px;
-        }
-
-        .facebook-description {
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 13px;
-        }
-
-        .facebook-open {
-            display: inline-block;
+        .facebook-link-item a {
             color: #1877F2;
-            font-size: 13px;
+            text-decoration: none;
+            font-size: 14px;
             font-weight: bold;
+        }
+
+        .facebook-link-item a:hover {
+            text-decoration: underline;
         }
 
         /* Footer */
@@ -436,61 +396,38 @@
 
                 <h2>Related Facebook Posts</h2>
 
-                <a href="https://www.facebook.com/share/p/1CJRZZKmBB/"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="facebook-card">
+                <div class="facebook-link-item">
 
-                    <div class="facebook-header">
+                    <p>
+                        A related discussion that offers another perspective
+                        on the role of young people in society and their
+                        contributions to the nation.
+                    </p>
 
-                        <div class="facebook-icon">f</div>
+                    <a href="https://www.facebook.com/share/p/1CJRZZKmBB/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Read the Facebook Post →
+                    </a>
 
-                        <div>
-                            <div class="facebook-name">Facebook Post 01</div>
-                            <div class="facebook-label">Related Article</div>
-                        </div>
-
-                    </div>
-
-                    <div class="facebook-description">
-                        Read the related Facebook post and explore another
-                        perspective on youth, society, and the issues
-                        discussed in this exhibition.
-                    </div>
-
-                    <span class="facebook-open">
-                        View Original Post →
-                    </span>
-
-                </a>
+                </div>
 
 
-                <a href="https://www.facebook.com/share/p/1CNXbnbxt7/"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="facebook-card">
+                <div class="facebook-link-item">
 
-                    <div class="facebook-header">
+                    <p>
+                        An additional reference that connects to the issues,
+                        experiences, and perspectives explored in this
+                        exhibition.
+                    </p>
 
-                        <div class="facebook-icon">f</div>
+                    <a href="https://www.facebook.com/share/p/1CNXbnbxt7/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Read the Facebook Post →
+                    </a>
 
-                        <div>
-                            <div class="facebook-name">Facebook Post 02</div>
-                            <div class="facebook-label">Related Article</div>
-                        </div>
-
-                    </div>
-
-                    <div class="facebook-description">
-                        Continue exploring the discussion through this
-                        related Facebook post.
-                    </div>
-
-                    <span class="facebook-open">
-                        View Original Post →
-                    </span>
-
-                </a>
+                </div>
 
             </div>
 
