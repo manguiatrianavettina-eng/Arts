@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,21 +14,19 @@
             color: #4A2C16;
         }
 
-        /* Navigation bar */
+        /* NAVIGATION BAR */
         .navbar {
             background-color: transparent;
             padding: 15px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             box-sizing: border-box;
             z-index: 10;
-
             transition: background-color 0.3s ease;
         }
 
@@ -61,10 +60,7 @@
             background-color: #F5E6D3;
         }
 
-        .navbar.scrolled .logo {
-            color: #4A2C16;
-        }
-
+        .navbar.scrolled .logo,
         .navbar.scrolled ul li a {
             color: #4A2C16;
         }
@@ -78,19 +74,18 @@
             transition: color 0.3s ease;
         }
 
-        /* Main content layout */
+        /* MAIN CONTENT LAYOUT */
         .content-layout {
             max-width: 1250px;
             margin: 110px auto 60px;
             padding: 0 25px;
-
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 30px;
             align-items: start;
         }
 
-        /* Main article */
+        /* MAIN ARTICLE */
         .article {
             min-width: 0;
             padding: 45px 55px;
@@ -130,18 +125,26 @@
             color: #964B00;
         }
 
-        /* Related articles sidebar */
+        /* SIDEBAR */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            position: sticky;
+            top: 100px;
+            min-width: 0;
+        }
+
+        /* MORE ARTICLES */
         .related-articles {
             background-color: white;
             padding: 25px;
             border-radius: 8px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-
-            position: sticky;
-            top: 100px;
         }
 
-        .related-articles h2 {
+        .related-articles h2,
+        .facebook-posts h2 {
             font-size: 22px;
             color: #321A0B;
             margin-top: 0;
@@ -195,22 +198,49 @@
             color: #964B00;
         }
 
-        /* Back button */
-        .back {
+        /* FACEBOOK POSTS */
+        .facebook-posts {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .facebook-posts h2 {
+            font-size: 22px;
+        }
+
+        .facebook-embed {
+            width: 100%;
+            overflow: hidden;
+            margin-bottom: 25px;
+        }
+
+        .facebook-embed:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .facebook-link {
             display: inline-block;
-            margin-top: 30px;
+            margin-top: 12px;
             color: #964B00;
             font-weight: bold;
+            font-size: 14px;
             text-decoration: none;
         }
 
-        /* Responsive layout */
+        .facebook-link:hover {
+            color: #4A2C16;
+        }
+
+        /* RESPONSIVE LAYOUT */
         @media (max-width: 900px) {
             .content-layout {
                 grid-template-columns: 1fr;
             }
 
-            .related-articles {
+            .sidebar {
                 position: static;
             }
         }
@@ -251,7 +281,8 @@
                 font-size: 16px;
             }
 
-            .related-articles {
+            .related-articles,
+            .facebook-posts {
                 padding: 20px;
             }
         }
@@ -261,8 +292,17 @@
 
 <body>
 
+    <!-- FACEBOOK SDK -->
+    <div id="fb-root"></div>
+
+    <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v21.0">
+    </script>
+
+
     <!-- NAVIGATION BAR -->
     <nav class="navbar">
+
         <a class="logo" href="Arts Website.html">LAKBAYAN</a>
 
         <ul>
@@ -271,6 +311,7 @@
             <li><a href="#destinations">Destinations</a></li>
             <li><a href="#gallery">Gallery</a></li>
         </ul>
+
     </nav>
 
 
@@ -284,7 +325,8 @@
 
             <p>EXHIBITION 01</p>
 
-            <img src="news_1.jpg" alt="The youth and the future of the nation">
+            <img src="news_1.jpg"
+                 alt="The youth and the future of the nation">
 
             <p>
                 “Ang kabataan ang pag-asa ng bayan.” These words, commonly associated with José Rizal, have become deeply embedded in how Filipinos
@@ -315,26 +357,82 @@
         </div>
 
 
-        <!-- RELATED ARTICLES SIDEBAR -->
-        <aside class="related-articles">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
 
-            <h2>More Articles</h2>
+            <!-- MORE ARTICLES -->
+            <div class="related-articles">
 
-            <a href="article2.html" class="related-card">
-                <img src="news_2.jpg" alt="Second article">
-                <div>
-                    <p>EXHIBITION 02</p>
-                    <h3>YOUR SECOND ARTICLE TITLE</h3>
+                <h2>More Articles</h2>
+
+                <a href="article2.html" class="related-card">
+
+                    <img src="news_2.jpg" alt="Second article">
+
+                    <div>
+                        <p>EXHIBITION 02</p>
+                        <h3>YOUR SECOND ARTICLE TITLE</h3>
+                    </div>
+
+                </a>
+
+                <a href="article3.html" class="related-card">
+
+                    <img src="news_3.jpg" alt="Third article">
+
+                    <div>
+                        <p>EXHIBITION 03</p>
+                        <h3>YOUR THIRD ARTICLE TITLE</h3>
+                    </div>
+
+                </a>
+
+            </div>
+
+
+            <!-- RELATED FACEBOOK POSTS -->
+            <div class="facebook-posts">
+
+                <h2>Related Facebook Posts</h2>
+
+                <!-- FACEBOOK POST 1 -->
+                <div class="facebook-embed">
+
+                    <div class="fb-post"
+                        data-href="https://www.facebook.com/share/1FbQW3jJdk/"
+                        data-width="350"
+                        data-show-text="true">
+                    </div>
+
+                    <a href="https://www.facebook.com/share/1FbQW3jJdk/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="facebook-link">
+                        View Post on Facebook →
+                    </a>
+
                 </div>
-            </a>
 
-            <a href="article3.html" class="related-card">
-                <img src="news_3.jpg" alt="Third article">
-                <div>
-                    <p>EXHIBITION 03</p>
-                    <h3>YOUR THIRD ARTICLE TITLE</h3>
+
+                <!-- FACEBOOK POST 2 -->
+                <div class="facebook-embed">
+
+                    <div class="fb-post"
+                        data-href="https://www.facebook.com/share/1HVgF3hn1h/"
+                        data-width="350"
+                        data-show-text="true">
+                    </div>
+
+                    <a href="https://www.facebook.com/share/1HVgF3hn1h/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="facebook-link">
+                        View Post on Facebook →
+                    </a>
+
                 </div>
-            </a>
+
+            </div>
 
         </aside>
 
@@ -343,7 +441,9 @@
 
     <!-- NAVIGATION BAR SCROLL EFFECT -->
     <script>
+
         window.addEventListener("scroll", function() {
+
             const navbar = document.querySelector(".navbar");
 
             if (window.scrollY > 50) {
@@ -351,7 +451,9 @@
             } else {
                 navbar.classList.remove("scrolled");
             }
+
         });
+
     </script>
 
 </body>
