@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Nation's Hope | LAKBAYAN</title>
+
+    <style>
+        body {
+            margin: 0;
+            background-color: #F5E6D3;
+            font-family: Arial, sans-serif;
+            color: #4A2C16;
+        }
+
+        /* Navigation bar */
+		.navbar {
+			background-color: transparent;
+			padding: 15px 30px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			box-sizing: border-box;
+			z-index: 10;
+
+			transition: background-color 0.3s ease;
+		}
+
+		.navbar .logo {
+			color: #4A2C16;
+			font-size: 24px;
+			font-weight: bold;
+			text-decoration: none;
+		}
+
+		.navbar ul {
+			list-style: none;
+			display: flex;
+			gap: 25px;
+			margin: 0;
+			padding: 0;
+		}
+
+		.navbar ul li a {
+			color: #4A2C16;
+			text-decoration: none;
+			font-size: 16px;
+			font-weight: bold;
+		}
+
+		.navbar ul li a:hover {
+			color: grey;
+		}
+		
+		.navbar.scrolled {
+			background-color: #F5E6D3;
+		}
+		
+		.navbar.scrolled .logo {
+			color: #4A2C16;
+		}
+
+		.navbar.scrolled ul li a {
+			color: #4A2C16;
+		}
+
+		.navbar.scrolled ul li a:hover {
+			color: #964B00;
+		}
+
+		.navbar .logo,
+		.navbar ul li a {
+			transition: color 0.3s ease;
+		}
+
+        .article {
+			max-width: 850px;
+			margin: 110px auto 60px;
+			padding: 45px 55px;
+			background-color: white;
+			border-radius: 8px;
+			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+			box-sizing: border-box;
+		}
+		
+		.article img {
+			display: block;
+			width: 100%;
+			height: auto;
+			object-fit: contain;
+			margin: 30px auto;
+		}
+		
+		.article h1 {
+			font-size: 42px;
+			line-height: 1.2;
+			margin-bottom: 15px;
+			color: #321A0B;
+		}
+
+		.article p {
+			font-size: 19px;
+			line-height: 1.9;
+			text-align: justify;
+			color: #3B281B;
+			margin-bottom: 22px;
+		}
+		
+		.article p:first-of-type {
+			font-size: 14px;
+			font-weight: bold;
+			letter-spacing: 3px;
+			color: #964B00;
+		}
+		
+        .back {
+            display: inline-block;
+            margin-top: 30px;
+            color: #964B00;
+            font-weight: bold;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+	<nav class="navbar">
+		<a class="logo">LAKBAYAN</a>
+		<ul>
+			<li><a href="Arts Website.html">Home</a></li>
+			<li><a href="#about">About</a></li>
+			<li><a href="#destinations">Destinations</a></li>
+			<li><a href="#gallery">Gallery</a></li>
+		</ul>
+	</nav>
+
+    <div class="article">
+        <h1>Youth Voices Rise Amid Doubts and Criticism</h1>
+
+        <p>EXHIBITION 02</p>
+
+        <img src="news_2.jpg">
+
+        <p>
+			There is a contradiction in telling young people that they are the hope of the nation while questioning their place whenever 
+			they speak about its problems. They are encouraged to become informed citizens, to care about their communities, and to take 
+			responsibility for the country's future. Yet, when they begin questioning political decisions, criticizing social conditions,
+			or joining movements that demand change, their participation can suddenly become unwelcome.
+		</p>
+		<p>
+			This contradiction becomes especially visible in the experiences of young Filipinos who take part in demonstrations and political 
+			movements. Events such as the Lakbayan ng Timog Katagalugan reflect how people come together to bring attention to concerns affecting
+			their communities. Among those who participate are young people who refuse to remain silent about the realities surrounding them. 
+			Their involvement challenges the idea that political awareness and resistance should only belong to adults or those already holding
+			positions of influence.
+		</p>
+		<p>
+			Instead of engaging with the substance of their concerns, young people can be dismissed as inexperienced, easily influenced, or incapable
+			of understanding complicated issues. Their age becomes the focus rather than the issues they are raising. This raises an important question: 
+			if young people are expected to inherit the consequences of decisions being made today, why should they not have a say in those decisions?
+        </p>
+		<p>
+			Art has long been part of how people respond to injustice and express political beliefs. A photograph can preserve a moment of collective 
+			resistance. An illustration can challenge those in power. A protest sign or a social media post can turn an individual concern into a message
+			shared by many. These expressions remind us that young people are not simply repeating what others tell them. They are observing, questioning, 
+			interpreting, and forming positions of their own.
+        </p>
+		<p>
+			Being young does not make a person's concerns irrelevant. Disagreement should not be mistaken for disrespect, and questioning authority should
+			not automatically be treated as a lack of understanding. If the youth are expected to care about the nation, they must also be allowed to speak 
+			about what they believe needs to change.
+        </p>
+    </div>
+</body>
+
+			<script>
+				window.addEventListener("scroll", function() {
+				const navbar = document.querySelector(".navbar");
+
+					if (window.scrollY > 50) {
+						navbar.classList.add("scrolled");
+					} else {
+						navbar.classList.remove("scrolled");
+					}
+				});
+			</script>
+</html>
