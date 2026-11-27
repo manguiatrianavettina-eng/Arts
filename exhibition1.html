@@ -4,9 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Nation's Hope | LAKBAYAN</title>
+    <title>The Nation Looks to the Youth | LAKBAYAN</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
             background-color: #F5E6D3;
@@ -14,67 +22,52 @@
             color: #4A2C16;
         }
 
-        /* NAVIGATION BAR */
+        /* Navigation Bar */
         .navbar {
-            background-color: transparent;
-            padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            box-sizing: border-box;
-            z-index: 10;
-            transition: background-color 0.3s ease;
-        }
-
-        .navbar .logo {
-            color: #4A2C16;
-            font-size: 24px;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        .navbar ul {
-            list-style: none;
+            z-index: 1000;
             display: flex;
-            gap: 25px;
-            margin: 0;
-            padding: 0;
-        }
-
-        .navbar ul li a {
-            color: #4A2C16;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: bold;
-        }
-
-        .navbar ul li a:hover {
-            color: grey;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 6%;
+            background-color: transparent;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .navbar.scrolled {
             background-color: #F5E6D3;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
         }
 
-        .navbar.scrolled .logo,
-        .navbar.scrolled ul li a {
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 2px;
             color: #4A2C16;
+            text-decoration: none;
         }
 
-        .navbar.scrolled ul li a:hover {
-            color: #964B00;
+        .nav-links {
+            display: flex;
+            gap: 30px;
         }
 
-        .navbar .logo,
-        .navbar ul li a {
+        .nav-links a {
+            color: #4A2C16;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: bold;
             transition: color 0.3s ease;
         }
 
-        /* MAIN CONTENT LAYOUT */
+        .nav-links a:hover {
+            color: #A66A3F;
+        }
+
+        /* Main Layout */
         .content-layout {
             max-width: 1250px;
             margin: 110px auto 60px;
@@ -85,157 +78,202 @@
             align-items: start;
         }
 
-        /* MAIN ARTICLE */
+        /* Main Article */
         .article {
-            min-width: 0;
-            padding: 45px 55px;
             background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            box-sizing: border-box;
+            padding: 45px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
         }
 
-        .article img {
-            display: block;
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-            margin: 30px auto;
+        .exhibition-label {
+            color: #A66A3F;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
         }
 
         .article h1 {
             font-size: 42px;
             line-height: 1.2;
-            margin-bottom: 15px;
-            color: #321A0B;
+            margin: 0 0 20px;
+            color: #4A2C16;
+        }
+
+        .article-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            margin: 25px 0;
         }
 
         .article p {
             font-size: 19px;
             line-height: 1.9;
-            text-align: justify;
-            color: #3B281B;
             margin-bottom: 22px;
+            text-align: justify;
         }
 
-        .article p:first-of-type {
-            font-size: 14px;
-            font-weight: bold;
-            letter-spacing: 3px;
-            color: #964B00;
-        }
-
-        /* SIDEBAR */
+        /* Sidebar */
         .sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
             position: sticky;
             top: 100px;
-            min-width: 0;
         }
 
-        /* MORE ARTICLES */
-        .related-articles {
+        .sidebar-section {
             background-color: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            padding: 22px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
         }
 
-        .related-articles h2,
-        .facebook-posts h2 {
-            font-size: 22px;
-            color: #321A0B;
+        .sidebar-section h2 {
+            font-size: 23px;
+            color: #4A2C16;
             margin-top: 0;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #E8D5C0;
+            margin-bottom: 18px;
         }
 
-        .related-card {
+        /* Related Articles */
+        .related-article {
             display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #E8D5C0;
+            gap: 14px;
+            align-items: center;
             text-decoration: none;
             color: #4A2C16;
-            transition: transform 0.3s ease;
+            margin-bottom: 18px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid #E5D8C8;
         }
 
-        .related-card:last-child {
-            border-bottom: none;
+        .related-article:last-child {
             margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
         }
 
-        .related-card img {
+        .related-article img {
             width: 100px;
             height: 85px;
             object-fit: cover;
-            border-radius: 5px;
-            margin: 0;
+            border-radius: 7px;
             flex-shrink: 0;
         }
 
-        .related-card h3 {
+        .related-article h3 {
             font-size: 15px;
             line-height: 1.4;
-            margin: 0 0 8px;
+            margin: 0 0 7px;
         }
 
-        .related-card p {
-            font-size: 12px;
-            color: #964B00;
-            margin: 0 0 8px;
+        .related-article span {
+            font-size: 11px;
+            color: #A66A3F;
+            font-weight: bold;
             letter-spacing: 1px;
         }
 
-        .related-card:hover {
-            transform: translateX(5px);
+        .related-article:hover h3 {
+            color: #A66A3F;
         }
 
-        .related-card:hover h3 {
-            color: #964B00;
-        }
-
-        /* FACEBOOK POSTS */
+        /* Facebook Cards */
         .facebook-posts {
             background-color: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            overflow: hidden;
+            padding: 22px;
+            border-radius: 12px;
+            margin-top: 25px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
         }
 
         .facebook-posts h2 {
-            font-size: 22px;
+            font-size: 23px;
+            color: #4A2C16;
+            margin-top: 0;
+            margin-bottom: 18px;
         }
 
-        .facebook-embed {
-            width: 100%;
-            overflow: hidden;
-            margin-bottom: 25px;
+        .facebook-card {
+            display: block;
+            text-decoration: none;
+            color: #4A2C16;
+            background-color: #F8F3EC;
+            border: 1px solid #E5D8C8;
+            border-radius: 10px;
+            padding: 17px;
+            margin-bottom: 15px;
+            transition: 0.3s ease;
         }
 
-        .facebook-embed:last-child {
+        .facebook-card:hover {
+            background-color: #EFE2D2;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .facebook-card:last-child {
             margin-bottom: 0;
         }
 
-        .facebook-link {
-            display: inline-block;
-            margin-top: 12px;
-            color: #964B00;
+        .facebook-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .facebook-icon {
+            background-color: #1877F2;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 23px;
             font-weight: bold;
+            font-family: Arial, sans-serif;
+            flex-shrink: 0;
+        }
+
+        .facebook-name {
             font-size: 14px;
-            text-decoration: none;
+            font-weight: bold;
         }
 
-        .facebook-link:hover {
-            color: #4A2C16;
+        .facebook-label {
+            font-size: 11px;
+            color: #888;
+            margin-top: 3px;
         }
 
-        /* RESPONSIVE LAYOUT */
-        @media (max-width: 900px) {
+        .facebook-description {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 13px;
+        }
+
+        .facebook-open {
+            display: inline-block;
+            color: #1877F2;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #76543C;
+            font-size: 13px;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 900px) {
             .content-layout {
                 grid-template-columns: 1fr;
             }
@@ -245,32 +283,30 @@
             }
         }
 
-        @media (max-width: 600px) {
+        @media screen and (max-width: 600px) {
             .navbar {
-                padding: 15px;
+                padding: 17px 5%;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-links {
+                gap: 17px;
                 flex-wrap: wrap;
-                gap: 12px;
+                justify-content: center;
             }
 
-            .navbar .logo {
-                font-size: 20px;
-            }
-
-            .navbar ul {
-                gap: 12px;
-            }
-
-            .navbar ul li a {
-                font-size: 12px;
+            .nav-links a {
+                font-size: 13px;
             }
 
             .content-layout {
-                margin-top: 110px;
-                padding: 0 12px;
+                margin-top: 140px;
+                padding: 0 15px;
             }
 
             .article {
-                padding: 25px 20px;
+                padding: 25px;
             }
 
             .article h1 {
@@ -280,108 +316,113 @@
             .article p {
                 font-size: 16px;
             }
-
-            .related-articles,
-            .facebook-posts {
-                padding: 20px;
-            }
         }
-
     </style>
 </head>
 
 <body>
 
-    <!-- FACEBOOK SDK -->
-    <div id="fb-root"></div>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
 
-    <script async defer crossorigin="anonymous"
-        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v21.0">
-    </script>
+        <a href="Arts Website.html" class="logo">LAKBAYAN</a>
 
-
-    <!-- NAVIGATION BAR -->
-    <nav class="navbar">
-
-        <a class="logo" href="Arts Website.html">LAKBAYAN</a>
-
-        <ul>
-            <li><a href="Arts Website.html">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#destinations">Destinations</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-        </ul>
+        <div class="nav-links">
+            <a href="Arts Website.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="destinations.html">Destinations</a>
+            <a href="gallery.html">Gallery</a>
+        </div>
 
     </nav>
 
 
-    <!-- MAIN CONTENT -->
-    <div class="content-layout">
+    <!-- Main Content -->
+    <main class="content-layout">
 
-        <!-- MAIN ARTICLE -->
-        <div class="article">
+        <!-- Article -->
+        <article class="article">
+
+            <div class="exhibition-label">EXHIBITION 01</div>
 
             <h1>The Nation Looks to the Youth as Its Hope for the Future</h1>
 
-            <p>EXHIBITION 01</p>
-
             <img src="news_1.jpg"
-                 alt="The youth and the future of the nation">
+                 alt="Youth and society"
+                 class="article-image">
 
             <p>
-                “Ang kabataan ang pag-asa ng bayan.” These words, commonly associated with José Rizal, have become deeply embedded in how Filipinos
-                understand the role of young people in society. They carry a sense of hope, but also an expectation: that the younger generation
-                will eventually become the people who lead the country toward progress. From the classroom to the larger community, young Filipinos
-                are constantly reminded that they hold the future of the nation in their hands. They are expected to study, become responsible citizens,
-                and prepare themselves to address the problems that previous generations have left behind.
+                "Ang kabataan ang pag-asa ng bayan." This is one of the most
+                familiar statements Filipinos hear when discussing the role
+                of young people in society. It reflects the belief that the
+                youth will eventually lead the country toward progress and
+                become responsible citizens who will shape its future.
+                Because of this, young people are often reminded of their
+                potential and the important responsibilities waiting for
+                them as they grow older.
             </p>
 
             <p>
-                But what does it mean to be the hope of a nation? Is it simply about the responsibilities that come with growing up, or does it also mean
-                recognizing the ideas and experiences of young people while they are still young? Too often, the youth are valued for their potential
-                rather than their present contributions. Their voices are treated as something that will matter when they become older, more experienced,
-                or more established. In this way, the promise of the future can become a reason to overlook the significance of the present.
+                However, what does it really mean to be the hope of the
+                nation? While young people are valued for what they may
+                contribute in the future, their contributions in the present
+                are sometimes overlooked. Their opinions may be considered
+                important only when they become older, more experienced, or
+                more established. The expectation that the youth will
+                eventually make a difference can sometimes take attention
+                away from the fact that they are already capable of
+                contributing today.
             </p>
 
             <p>
-                The youth are not merely individuals waiting for their turn to contribute. They are students witnessing the realities of their communities,
-                young citizens affected by political decisions, and individuals forming their own understanding of the world around them. Their hopes,
-                questions, and concerns are already connected to the future they are expected to build.
+                Young people are not simply individuals waiting for their
+                turn to make a difference. They are students who witness
+                the realities of their communities, young citizens who are
+                affected by political decisions, and individuals who are
+                continuously forming their understanding of the world.
+                Their hopes, questions, and concerns are already connected
+                to the future of the country. These experiences deserve to
+                be recognized rather than dismissed because of their age.
             </p>
 
             <p>
-                To call the youth the hope of the nation must mean more than placing expectations upon them. It must also mean acknowledging their humanity,
-                listening to their perspectives, and allowing them to participate in the society they are expected to inherit.
+                Calling the youth the hope of the nation should therefore
+                mean more than placing expectations on their shoulders.
+                It should also mean acknowledging their humanity, listening
+                to their perspectives, and allowing them to participate in
+                the society they are expected to inherit. After all, young
+                people should not have to wait until the future to prove
+                that they can already be part of meaningful change.
             </p>
 
-        </div>
+        </article>
 
 
-        <!-- SIDEBAR -->
+        <!-- Sidebar -->
         <aside class="sidebar">
 
-            <!-- MORE ARTICLES -->
-            <div class="related-articles">
+            <!-- More Articles -->
+            <div class="sidebar-section">
 
                 <h2>More Articles</h2>
 
-                <a href="article2.html" class="related-card">
+                <a href="article2.html" class="related-article">
 
-                    <img src="news_2.jpg" alt="Second article">
+                    <img src="news_2.jpg" alt="Exhibition 02">
 
                     <div>
-                        <p>EXHIBITION 02</p>
+                        <span>EXHIBITION 02</span>
                         <h3>YOUR SECOND ARTICLE TITLE</h3>
                     </div>
 
                 </a>
 
-                <a href="article3.html" class="related-card">
+                <a href="article3.html" class="related-article">
 
-                    <img src="news_3.jpg" alt="Third article">
+                    <img src="news_3.jpg" alt="Exhibition 03">
 
                     <div>
-                        <p>EXHIBITION 03</p>
+                        <span>EXHIBITION 03</span>
                         <h3>YOUR THIRD ARTICLE TITLE</h3>
                     </div>
 
@@ -390,70 +431,91 @@
             </div>
 
 
-            <!-- RELATED FACEBOOK POSTS -->
+            <!-- Related Facebook Posts -->
             <div class="facebook-posts">
 
                 <h2>Related Facebook Posts</h2>
 
-                <!-- FACEBOOK POST 1 -->
-                <div class="facebook-embed">
+                <a href="https://www.facebook.com/share/p/1CJRZZKmBB/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="facebook-card">
 
-                    <div class="fb-post"
-                        data-href="https://www.facebook.com/share/p/1CJRZZKmBB/"
-                        data-width="350"
-                        data-show-text="true">
+                    <div class="facebook-header">
+
+                        <div class="facebook-icon">f</div>
+
+                        <div>
+                            <div class="facebook-name">Facebook Post 01</div>
+                            <div class="facebook-label">Related Article</div>
+                        </div>
+
                     </div>
 
-                    <a href="https://www.facebook.com/share/p/1CJRZZKmBB/"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="facebook-link">
-                        View Post on Facebook →
-                    </a>
-
-                </div>
-
-
-                <!-- FACEBOOK POST 2 -->
-                <div class="facebook-embed">
-
-                    <div class="fb-post"
-                        data-href="https://www.facebook.com/share/p/1CNXbnbxt7/"
-                        data-width="350"
-                        data-show-text="true">
+                    <div class="facebook-description">
+                        Read the related Facebook post and explore another
+                        perspective on youth, society, and the issues
+                        discussed in this exhibition.
                     </div>
 
-                    <a href="https://www.facebook.com/share/p/1CNXbnbxt7/"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="facebook-link">
-                        View Post on Facebook →
-                    </a>
+                    <span class="facebook-open">
+                        View Original Post →
+                    </span>
 
-                </div>
+                </a>
+
+
+                <a href="https://www.facebook.com/share/p/1CNXbnbxt7/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="facebook-card">
+
+                    <div class="facebook-header">
+
+                        <div class="facebook-icon">f</div>
+
+                        <div>
+                            <div class="facebook-name">Facebook Post 02</div>
+                            <div class="facebook-label">Related Article</div>
+                        </div>
+
+                    </div>
+
+                    <div class="facebook-description">
+                        Continue exploring the discussion through this
+                        related Facebook post.
+                    </div>
+
+                    <span class="facebook-open">
+                        View Original Post →
+                    </span>
+
+                </a>
 
             </div>
 
         </aside>
 
-    </div>
+    </main>
 
 
-    <!-- NAVIGATION BAR SCROLL EFFECT -->
+    <!-- Footer -->
+    <footer>
+        <p>LAKBAYAN | A Virtual Exhibition</p>
+    </footer>
+
+
+    <!-- Navigation Scroll Effect -->
     <script>
+        const navbar = document.getElementById("navbar");
 
-        window.addEventListener("scroll", function() {
-
-            const navbar = document.querySelector(".navbar");
-
+        window.addEventListener("scroll", function () {
             if (window.scrollY > 50) {
                 navbar.classList.add("scrolled");
             } else {
                 navbar.classList.remove("scrolled");
             }
-
         });
-
     </script>
 
 </body>
